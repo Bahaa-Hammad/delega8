@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "ES2021",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "paths": {
+      "@src/*": ["src/*"],
+      "@core/*": ["src/core/*"],
+      "@agents/*": ["src/api/agent/*"],
+      "@shared/*": ["src/shared/*"],
+      "@auth/*": ["src/api/auth/*"],
+      "@user/*": ["src/api/user/*"],
+      "@knowledge/*": ["src/api/knowledge/*"],
+      "@tools/*": ["src/api/tool/*"],
+      "@models/*": ["src/api/models/*"],
+      "@admin/*": ["src/api/admin/*"],
+      "@oauth/*": ["src/api/oauth/*"],
+      "@test/*": ["test/*"],
+      "@steps/*": ["src/api/steps/*"],
+      "@common/*": ["src/common/*"]
+      // Add more aliases as needed
+    },
+    "incremental": true,
+    "skipLibCheck": true,
+    "strictNullChecks": false,
+    "noImplicitAny": false,
+    "strictBindCallApply": false,
+    "forceConsistentCasingInFileNames": false,
+    "noFallthroughCasesInSwitch": false
+  }
+}
