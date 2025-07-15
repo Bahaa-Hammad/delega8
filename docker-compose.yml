@@ -1,0 +1,45 @@
+version: '3.9'
+
+services:
+  database:
+    image: postgres:15
+    container_name: agent-ai-builder-database
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - agent_ai_builder_network
+  chroma_server:
+    image: chromadb/chroma:0.6.4.dev326
+    container_name: chroma_server
+    environment:
+      # Enable new-architecture Postgres mode:
+      CHROMA_DB_IMPL: postgresql
+      POSTGRES_HOST: database
+      POSTGRES_PORT: 5432
+      POSTGRES_USER: app_user
+      POSTGRES_PASSWORD: lYp5AvDFbYFG6RXYtcbXAyJklEOWFPXF6545h3r
+      POSTGRES_DB: agent_builder
+
+      # Optional: recommended for production
+      ANONYMIZED_TELEMETRY: false
+      ALLOW_RESET: false # if you want to disable the /reset endpoint
+
+      # The new architecture does not need "chroma start --db=..."
+      # Just pass env vars; the container defaults to running uvicorn with the new architecture.
+    ports:
+      - '8000:8000' # Chroma REST API
+    depends_on:
+      - database
+
+networks:
+  agent_ai_builder_network:
+    driver: bridge
+
+volumes:
+  postgres_data:

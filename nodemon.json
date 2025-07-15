@@ -1,0 +1,6 @@
+{
+  "watch": ["src"],
+  "ext": "ts",
+  "exec": "npm run start:dev",
+  "ignore": ["node_modules", "dist"]
+}

@@ -1,0 +1,6 @@
+id,race,age,gender,height,weight,bmi,education,income,marital_status,occupation,location
+1,white,30,male,170,70,24.2,bachelor,50000,single,engineer,new york
+2,black,25,female,160,55,21.3,master,60000,married,doctor,los angeles
+3,asian,35,male,180,80,24.5,phd,70000,divorced,lawyer,san francisco
+4,hispanic,40,female,165,65,22.8,associate,55000,widowed,teacher,chicago
+5,white,28,male,175,75,25.1,bachelor,45000,married,manager,seattle

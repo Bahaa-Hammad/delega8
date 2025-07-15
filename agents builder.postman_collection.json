@@ -1,0 +1,2522 @@
+{
+	"info": {
+		"_postman_id": "e987de5e-b70b-4c48-8c31-4e88a3543ecc",
+		"name": "agents builder",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Tools",
+			"item": [
+				{
+					"name": "New Folder",
+					"item": [
+						{
+							"name": "Get communities",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{ACCESS_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"GetCommunities\",\n    \"description\": \"Get communities form CRM, my tool take url and token of the user\",\n\n    \"fields\": [\n       {\n                \"name\": \"token\",\n                \"type\": \"string\",\n                \"optional\": true\n            }\n            \n    ],\n    \"steps\": [\n       {\n            \"id\": \"api\",\n            \"name\" : \"Get communities\",\n            \"type\": \"api\",\n           \"baseUrl\" : \"https://roshn-uat-1bf76xz0x.com/main-backend/api/v1/available-communities-for-booking\",\n           \"headers\" : {\n               \"Authorization\" : \"Bearer {token}\"\n           },\n           \"verb\" : \"GET\",\n                     \"outputNamespace\" : \"communities\"\n\n        }\n        \n    ]\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/tools",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"tools"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Invoke get communities",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{ACCESS_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"token\" : \"eyJ0eXAiOiJKV1QiLCJraWQiOiI5Y2tGYnl5YmdWeUpyM24vbU0wSnZYRVhaems9IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiI2N2RkMTAxYS0yZTI5LTRkY2EtODg0NC05MjI0Nzk4NjBhZGEiLCJjdHMiOiJPQVVUSDJfU1RBVEVMRVNTX0dSQU5UIiwiYXV0aF9sZXZlbCI6MCwiYXVkaXRUcmFja2luZ0lkIjoiNTA2ZWJjZjEtZDRhNy00YmZjLWExZmYtZjg4NDIzZDE0NDNlLTE0OTc2OCIsInN1Ym5hbWUiOiI2N2RkMTAxYS0yZTI5LTRkY2EtODg0NC05MjI0Nzk4NjBhZGEiLCJpc3MiOiJodHRwczovL2lhbS11YXQubXlyb3Nobi5jb206NDQzL2FtL29hdXRoMi9yZWFsbXMvcm9vdC9yZWFsbXMvcm9zaG4iLCJ0b2tlbk5hbWUiOiJhY2Nlc3NfdG9rZW4iLCJ0b2tlbl90eXBlIjoiQmVhcmVyIiwiYXV0aEdyYW50SWQiOiJpS0QtZldRQXVVcGJFRUp3OUE0eHpaTDYwczQiLCJhdWQiOiJSb3NoblNBIiwibmJmIjoxNzM5MzY5Mjg2LCJncmFudF90eXBlIjoiYXV0aG9yaXphdGlvbl9jb2RlIiwic2NvcGUiOlsib3BlbmlkIiwicHJvZmlsZSIsInJlZ2lzdGVyZWQiLCJmcjppZG06KiIsImVtYWlsIl0sImF1dGhfdGltZSI6MTczOTM2OTI4NCwicmVhbG0iOiIvcm9zaG4iLCJleHAiOjE3MzkzNzI4ODYsImlhdCI6MTczOTM2OTI4NiwiZXhwaXJlc19pbiI6MzYwMCwianRpIjoiRklYOHR5OEN4ZG5RNUZPR2o4ZE9ZRVdXYU5ZIiwibWFpbCI6InZydXNoYWxpLmNAcm9zaG4uc2EiLCJ1c2VyTmFtZSI6IjgwZTMwYjU5LWNmYzAtNDgwOS05NjE5LTZlNjg2MjFlZWE0OCIsImNybUNvbnRhY3RDcmVhdGVkIjp0cnVlLCJjcm1MZWFkQ3JlYXRlZCI6dHJ1ZSwicGFzc3dvcmRDb25maWd1cmVkIjpmYWxzZSwibmFmYXRoVmVyaWZpZWQiOmZhbHNlfQ.UvqOWc7pHcVn2bGJS_Hkqiwnex-aBPNqt2_1204rQSuVuyyCR0g6nqyy0t-5SVbiX69QIUIuMbvLBAgZvx7Jh8VisTM4qk-_EbBQo4hl4oO4hU-iMgbKd8lRzqzsuQO7kBaUIOEPC_K50i-AZ0CS0pWzBxLF-JzYaNwT3AnkTwarA3e_GmhboHEH1rNDirPpFoYXmCAbvGe_nkGIws763vJhftJ6ivP7v1o04JDBTOsmmP_tix0MJCFiUpHkVWi62ep1JdxMOEeglhXaCegWSUSfys9t7SKg5ackkB6ei99RlIV1kyDCATE2VCnmxqi190ZfuCh2Zb9aMXoUXIT43Q\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/tools/5e972d34-897a-4cfa-bcb9-f84d544ebc55/invoke",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"tools",
+										"5e972d34-897a-4cfa-bcb9-f84d544ebc55",
+										"invoke"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Available slots",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{ACCESS_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"GetBookingCapacity\",\n  \"description\": \"Get booking capacity from CRM using locationId and user token\",\n  \"fields\": [\n    {\n      \"name\": \"token\",\n      \"type\": \"string\",\n      \"optional\": true\n    },\n    {\n      \"name\": \"locationId\",\n      \"type\": \"string\",\n      \"optional\": true\n    }\n  ],\n  \"steps\": [\n    {\n      \"id\": \"api\",\n      \"name\": \"Get booking capacity\",\n      \"type\": \"api\",\n      \"baseUrl\": \"https://roshn-uat-1bf76xz0x.com/main-backend/api/v1/booking-capacity\",\n      \"headers\": {\n        \"Authorization\": \"Bearer {token}\"\n      },\n      \"verb\": \"GET\",\n      \"query\": {\n        \"locationId\": \"{locationId}\"\n      },\n      \"outputNamespace\": \"bookingCapacity\"\n    }\n  ]\n}\n"
+								},
+								"url": {
+									"raw": "http://localhost:3000/tools",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"tools"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update available slots",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{ACCESS_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"GetBookingCapacity\",\n  \"description\": \"Get booking capacity from CRM using locationId and user token\",\n \n  \n  \"steps\": [\n    {\n      \"id\": \"api\",\n      \"name\": \"Get booking capacity\",\n      \"type\": \"api\",\n      \"baseUrl\": \"https://roshn-uat-1bf76xz0x.com/main-backend/api/v1/booking-capacity\",\n      \"headers\": {\n        \"Authorization\": \"Bearer {token}\"\n      },\n      \"verb\": \"GET\",\n      \"query\": {\n        \"locationId\": \"{locationId}\"\n      },\n      \"outputNamespace\": \"bookingCapacity\"\n    },\n    {\n        \"type\" \n    }\n  ]\n}\n"
+								},
+								"url": {
+									"raw": "http://localhost:3000/tools",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"tools"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Invoke available slots",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{ACCESS_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"token\" : \"eyJ0eXAiOiJKV1QiLCJraWQiOiI5Y2tGYnl5YmdWeUpyM24vbU0wSnZYRVhaems9IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiI2N2RkMTAxYS0yZTI5LTRkY2EtODg0NC05MjI0Nzk4NjBhZGEiLCJjdHMiOiJPQVVUSDJfU1RBVEVMRVNTX0dSQU5UIiwiYXV0aF9sZXZlbCI6MCwiYXVkaXRUcmFja2luZ0lkIjoiNTA2ZWJjZjEtZDRhNy00YmZjLWExZmYtZjg4NDIzZDE0NDNlLTE0OTc2OCIsInN1Ym5hbWUiOiI2N2RkMTAxYS0yZTI5LTRkY2EtODg0NC05MjI0Nzk4NjBhZGEiLCJpc3MiOiJodHRwczovL2lhbS11YXQubXlyb3Nobi5jb206NDQzL2FtL29hdXRoMi9yZWFsbXMvcm9vdC9yZWFsbXMvcm9zaG4iLCJ0b2tlbk5hbWUiOiJhY2Nlc3NfdG9rZW4iLCJ0b2tlbl90eXBlIjoiQmVhcmVyIiwiYXV0aEdyYW50SWQiOiJpS0QtZldRQXVVcGJFRUp3OUE0eHpaTDYwczQiLCJhdWQiOiJSb3NoblNBIiwibmJmIjoxNzM5MzY5Mjg2LCJncmFudF90eXBlIjoiYXV0aG9yaXphdGlvbl9jb2RlIiwic2NvcGUiOlsib3BlbmlkIiwicHJvZmlsZSIsInJlZ2lzdGVyZWQiLCJmcjppZG06KiIsImVtYWlsIl0sImF1dGhfdGltZSI6MTczOTM2OTI4NCwicmVhbG0iOiIvcm9zaG4iLCJleHAiOjE3MzkzNzI4ODYsImlhdCI6MTczOTM2OTI4NiwiZXhwaXJlc19pbiI6MzYwMCwianRpIjoiRklYOHR5OEN4ZG5RNUZPR2o4ZE9ZRVdXYU5ZIiwibWFpbCI6InZydXNoYWxpLmNAcm9zaG4uc2EiLCJ1c2VyTmFtZSI6IjgwZTMwYjU5LWNmYzAtNDgwOS05NjE5LTZlNjg2MjFlZWE0OCIsImNybUNvbnRhY3RDcmVhdGVkIjp0cnVlLCJjcm1MZWFkQ3JlYXRlZCI6dHJ1ZSwicGFzc3dvcmRDb25maWd1cmVkIjpmYWxzZSwibmFmYXRoVmVyaWZpZWQiOmZhbHNlfQ.UvqOWc7pHcVn2bGJS_Hkqiwnex-aBPNqt2_1204rQSuVuyyCR0g6nqyy0t-5SVbiX69QIUIuMbvLBAgZvx7Jh8VisTM4qk-_EbBQo4hl4oO4hU-iMgbKd8lRzqzsuQO7kBaUIOEPC_K50i-AZ0CS0pWzBxLF-JzYaNwT3AnkTwarA3e_GmhboHEH1rNDirPpFoYXmCAbvGe_nkGIws763vJhftJ6ivP7v1o04JDBTOsmmP_tix0MJCFiUpHkVWi62ep1JdxMOEeglhXaCegWSUSfys9t7SKg5ackkB6ei99RlIV1kyDCATE2VCnmxqi190ZfuCh2Zb9aMXoUXIT43Q\",\n    \"locationId\" : \"300000732129736\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/tools/314fbbc1-c413-4db9-8b42-b1d2df0f913a/invoke",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"tools",
+										"314fbbc1-c413-4db9-8b42-b1d2df0f913a",
+										"invoke"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Schedule appointments",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{ACCESS_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"GetAppointments\",\n  \"description\": \"Fetches user appointments from CRM using the provided token\",\n  \"fields\": [\n    {\n      \"name\": \"token\",\n      \"type\": \"string\",\n      \"optional\": true\n    }\n  ],\n  \"steps\": [\n    {\n      \"id\": \"api\",\n      \"name\": \"Get appointments\",\n      \"type\": \"api\",\n      \"baseUrl\": \"https://roshn-uat-1bf76xz0x.com/main-backend/api/v1/appointments\",\n      \"headers\": {\n        \"Authorization\": \"Bearer {token}\"\n      },\n      \"verb\": \"GET\",\n      \"outputNamespace\": \"appointments\"\n    }\n  ]\n}\n"
+								},
+								"url": {
+									"raw": "http://localhost:3000/tools",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"tools"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Invoke appointmet",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{ACCESS_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"token\" : \"eyJ0eXAiOiJKV1QiLCJraWQiOiI5Y2tGYnl5YmdWeUpyM24vbU0wSnZYRVhaems9IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiI2N2RkMTAxYS0yZTI5LTRkY2EtODg0NC05MjI0Nzk4NjBhZGEiLCJjdHMiOiJPQVVUSDJfU1RBVEVMRVNTX0dSQU5UIiwiYXV0aF9sZXZlbCI6MCwiYXVkaXRUcmFja2luZ0lkIjoiNTA2ZWJjZjEtZDRhNy00YmZjLWExZmYtZjg4NDIzZDE0NDNlLTE0OTc2OCIsInN1Ym5hbWUiOiI2N2RkMTAxYS0yZTI5LTRkY2EtODg0NC05MjI0Nzk4NjBhZGEiLCJpc3MiOiJodHRwczovL2lhbS11YXQubXlyb3Nobi5jb206NDQzL2FtL29hdXRoMi9yZWFsbXMvcm9vdC9yZWFsbXMvcm9zaG4iLCJ0b2tlbk5hbWUiOiJhY2Nlc3NfdG9rZW4iLCJ0b2tlbl90eXBlIjoiQmVhcmVyIiwiYXV0aEdyYW50SWQiOiJpS0QtZldRQXVVcGJFRUp3OUE0eHpaTDYwczQiLCJhdWQiOiJSb3NoblNBIiwibmJmIjoxNzM5MzY5Mjg2LCJncmFudF90eXBlIjoiYXV0aG9yaXphdGlvbl9jb2RlIiwic2NvcGUiOlsib3BlbmlkIiwicHJvZmlsZSIsInJlZ2lzdGVyZWQiLCJmcjppZG06KiIsImVtYWlsIl0sImF1dGhfdGltZSI6MTczOTM2OTI4NCwicmVhbG0iOiIvcm9zaG4iLCJleHAiOjE3MzkzNzI4ODYsImlhdCI6MTczOTM2OTI4NiwiZXhwaXJlc19pbiI6MzYwMCwianRpIjoiRklYOHR5OEN4ZG5RNUZPR2o4ZE9ZRVdXYU5ZIiwibWFpbCI6InZydXNoYWxpLmNAcm9zaG4uc2EiLCJ1c2VyTmFtZSI6IjgwZTMwYjU5LWNmYzAtNDgwOS05NjE5LTZlNjg2MjFlZWE0OCIsImNybUNvbnRhY3RDcmVhdGVkIjp0cnVlLCJjcm1MZWFkQ3JlYXRlZCI6dHJ1ZSwicGFzc3dvcmRDb25maWd1cmVkIjpmYWxzZSwibmFmYXRoVmVyaWZpZWQiOmZhbHNlfQ.UvqOWc7pHcVn2bGJS_Hkqiwnex-aBPNqt2_1204rQSuVuyyCR0g6nqyy0t-5SVbiX69QIUIuMbvLBAgZvx7Jh8VisTM4qk-_EbBQo4hl4oO4hU-iMgbKd8lRzqzsuQO7kBaUIOEPC_K50i-AZ0CS0pWzBxLF-JzYaNwT3AnkTwarA3e_GmhboHEH1rNDirPpFoYXmCAbvGe_nkGIws763vJhftJ6ivP7v1o04JDBTOsmmP_tix0MJCFiUpHkVWi62ep1JdxMOEeglhXaCegWSUSfys9t7SKg5ackkB6ei99RlIV1kyDCATE2VCnmxqi190ZfuCh2Zb9aMXoUXIT43Q\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/tools/3cd8b589-ed81-41ca-8235-bf4dc2390f7f/invoke",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"tools",
+										"3cd8b589-ed81-41ca-8235-bf4dc2390f7f",
+										"invoke"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add appointment agent",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{ACCESS_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"Appointments scheduler\",\n  \"description\": \"Schedule user appointments. This agent makes use of the GetCommunities tool (and optionally others) to retrieve necessary data before scheduling.\",\n  \"coreInstructions\": \"1) First, call the 'GetCommunities' tool to retrieve available communities. 2) From the tool's output (in the 'communities' namespace), locate a valid LocationId. 3) (Optional) If needed, call 'GetBookingCapacity' with the chosen LocationId to verify capacity. 4) Finally, call 'GetAppointments' to retrieve or schedule the user’s appointments. Make sure you pass the required token and any relevant IDs as fields in each tool call.\",\n  \"category\": \"Scheduler\",\n  \"tags\": [\"logging\", \"retrieval\"],\n  \"toolIds\": [\n    \"5e972d34-897a-4cfa-bcb9-f84d544ebc55\", \"314fbbc1-c413-4db9-8b42-b1d2df0f913a\", \"3cd8b589-ed81-41ca-8235-bf4dc2390f7f\"\n  ]\n}\n"
+								},
+								"url": {
+									"raw": "http://localhost:3000/agents",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"agents"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add appointment agent Copy",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{ACCESS_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"model\" : {\n        \"provider\" : \"google\",\n        \"model\" : \"gemini-1.5-pro\",\n        \"apiKey\" : \"AIzaSyB9NinYSiEnlyeXYie9sxp9xcVMNrkZQ7c\",\n        \"maxRetries\" : 2\n    },\n \"coreInstructions\" : \"1) First, call the 'GetCommunities' tool to retrieve available communities if needed. 2) From the tool's output (in the 'communities' namespace), ask the user to choose the location (display in user friendly format) if needed 3) when you get the user input, call 'GetBookingCapacity' with the chosen LocationId to verify capacity. 4) Finally, ask the user to choose the date, then show them the available timeslots for that date for that date then call 'GetAppointments' to retrieve or schedule the user’s appointments. Make sure you pass the required token and any relevant IDs as fields in each tool call.\"\n}\n"
+								},
+								"url": {
+									"raw": "http://localhost:3000/agents/a5166684-ced5-4d52-a2b6-40b402ee9a71",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"agents",
+										"a5166684-ced5-4d52-a2b6-40b402ee9a71"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "chat with appointment agent",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{ACCESS_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"messages\": [\n        {\n            \"role\": \"HUMAN\",\n            \"content\": \"JEDDAH\"\n        }\n    ],\n    \"chatId\": \"2d1f8d02-6f17-4dfb-ba5e-af1c5139dfc9\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/agents/a5166684-ced5-4d52-a2b6-40b402ee9a71/chats",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"agents",
+										"a5166684-ced5-4d52-a2b6-40b402ee9a71",
+										"chats"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Optimize sitemap",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"e52a1946-6f04-4717-aee5-68e6dcbbf19b\",\n    \"name\": \"Get sitemap of website\",\n    \"description\": \"I'll give you a URL of a website and I want you get the sitemap\",\n    \"fields\": [\n        {\n            \"name\": \"url\",\n            \"type\": \"string\",\n            \"optional\": true\n        }\n    ],\n    \"steps\": [\n        {\n            \"id\": \"api\",\n            \"name\": \"Get sitemap\",\n            \"type\": \"api\",\n            \"baseUrl\": \"{url}\",\n            \"verb\": \"GET\",\n            \"outputNamespace\": \"sitemap\"\n        },\n        {\n            \"id\": \"llm\",\n            \"name\": \"Get Recomendations\",\n            \"type\": \"llm\",\n            \"modelName\": \"gpt-4o\",\n            \"promptTemplate\": \"Can you give me concise and producation grade recomendations on how to improve my sitemap for: {sitemap.responseBody}, please don't re-write the sitemap, just givme the recomendations {sitemap.responseBody}. Ensure that the recomendations can help me re-write the new sitemap\",\n            \"outputNamespace\": \"recomendations\"\n        },\n        {\n            \"id\": \"llm\",\n            \"name\": \"generate_new_sitemap\",\n            \"type\": \"llm\",\n            \"modelName\": \"gpt-4o\",\n            \"promptTemplate\": \"Can you re-write this sitemap: \\n {sitemap.responseBody} based on these recomendations: \\n {recomendations.answer}, please output the new sitemap and nothing else, ensure the sitemap is inclusive of all required details.\",\n            \"outputNamespace\": \"newSitemap\"\n        }\n    ]\n}"
+						},
+						"url": {
+							"raw": "https://autom8-backend-285086043355.us-central1.run.app/tools",
+							"protocol": "https",
+							"host": [
+								"autom8-backend-285086043355",
+								"us-central1",
+								"run",
+								"app"
+							],
+							"path": [
+								"tools"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add tool",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Scrape page\",\n    \"description\": \"scrape page\",\n    \"fields\": [\n       {\n                \"name\": \"url\",\n                \"type\": \"string\",\n                \"optional\": true\n            }\n    ],\n    \"steps\": [\n       {\n            \"id\": \"scrape-1\",\n            \"type\": \"scrape\",\n           \"url\" : \"{url}\",\n           \"outputNamespace\" : \"scrape\"\n        }\n         \n    ]\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/tools",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tools"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "bulk",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[{\n    \"url\" : \"https://roshn.sa\"\n}, \n{\n    \"url\" : \"https://roshn.sa\"\n}\n]"
+						},
+						"url": {
+							"raw": "http://localhost:3000/tools/823bdcc8-a586-4c82-8bf0-2b79da18b035/bulk-invoce",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tools",
+								"823bdcc8-a586-4c82-8bf0-2b79da18b035",
+								"bulk-invoce"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "invoke one",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"url\" : \"https://roshn.sa\"\n}\n"
+						},
+						"url": {
+							"raw": "http://localhost:3000/tools/823bdcc8-a586-4c82-8bf0-2b79da18b035/invoce",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tools",
+								"823bdcc8-a586-4c82-8bf0-2b79da18b035",
+								"invoce"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Invoke Optimize sitemap",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"url\" : \"https://home.roshn.sa/sitemap.xml\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/tools/e52a1946-6f04-4717-aee5-68e6dcbbf19b/invoke",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tools",
+								"e52a1946-6f04-4717-aee5-68e6dcbbf19b",
+								"invoke"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Optimize sitemap",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Get page info\",\n    \"description\": \"Optimize page metadata\",\n    \"fields\": [\n       {\n                \"name\": \"url\",\n                \"type\": \"string\",\n                \"optional\": true\n            }\n    ],\n    \"steps\": [\n       {\n            \"id\": \"scrape-1\",\n            \"type\": \"scrape\",\n           \"url\" : \"{url}\",\n           \"outputNamespace\" : \"scrape\"\n        },\n         {\n            \"id\": \"llm\",\n            \"name\" : \"test\",\n            \"type\": \"llm\",\n           \"promptTemplate\" : \"can you give me optimized seo tags and metadata {scrape.docs}\",\n            \"outputNamespace\" : \"optimizedTags\"\n\n        }\n    ]\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/tools",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"tools"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add scrape url",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Scrape page\",\n    \"description\": \"Scrape page\",\n    \"fields\": [\n        {\n            \"name\": \"url\",\n            \"type\": \"string\",\n            \"optional\" : true\n        }\n      \n        \n    ],\n    \"steps\": [\n        {\n            \"id\": \"youtube-1\",\n            \"type\": \"scrape\",\n            \"url\" : \"{url}\" \n        }\n      \n    ]\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/tools",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tools"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get slots",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Get communities\",\n    \"description\": \"Get communities form CRM, my tool take url and token of the user\",\n    \"fields\": [\n      \n            \n    ],\n    \"steps\": [\n       {\n            \"id\": \"api\",\n            \"name\" : \"Get slots\",\n            \"type\": \"api\",\n           \"baseUrl\" : \"https://roshn-uat-1bf76xz0x.com/main-backend/api/v1/available-communities-for-booking\",\n           \"headers\" : {\n                \"Authorization\" : \"Bearer {token}\"\n           },\n           \"verb\" : \"GET\"\n      \n        }\n        \n    ]\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/tools",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tools"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get tools",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/tools",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tools"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update get communities tool",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Get communities\",\n    \"description\": \"Get communities form CRM, my tool take url and token of the user\",\n    \n    \"fields\": [\n       {\n                \"name\": \"token\",\n                \"type\": \"string\",\n                \"optional\": true\n            }\n            \n    ],\n    \"steps\": [\n       {\n            \"id\": \"api\",\n            \"name\" : \"Get communities\",\n            \"type\": \"api\",\n           \"baseUrl\" : \"https://roshn-uat-1bf76xz0x.com/main-backend/api/v1/available-communities-for-booking\",\n           \"headers\" : {\n               \"Authorization\" : \"Bearer {token}\"\n           },\n           \"verb\" : \"GET\",\n             \"outputNamespace\": \"communities\"\n        }\n        \n    ]\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/tools/2b6d4ea3-911c-4ad3-b8dc-a825b091d129",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tools",
+								"2b6d4ea3-911c-4ad3-b8dc-a825b091d129"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update tool",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Get page info\",\n    \"description\": \"Optimize page metadata\",\n    \"outputNamespace\" : \"communities\",\n    \"fields\": [\n       {\n                \"name\": \"urls\",\n                \"type\": \"array_string\",\n                \"optional\": true\n            }\n    ],\n    \"steps\": [\n      {\n      \"type\": \"scrape\",\n      \"id\": \"scrape-1\",\n      \"url\": \"{loopValue}\",\n      \"isLoop\": true,\n      \"loopOn\": \"urls\",\n      \"outputNamespace\": \"scrape\"\n    },\n {\n      \"type\": \"llm\",\n      \"id\": \"llm\",\n      \"name\": \"test\",\n      \"isLoop\": true,\n      \"loopOn\": \"scrape\",\n      \"promptTemplate\": \"can you give me optimized seo tags and metadata {loopValue.docs}\",\n      \"outputNamespace\": \"optimizedTags\"\n    }\n    ]\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/tools/a8a2a6e6-538c-43a1-b4d5-095bc56f9982",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tools",
+								"a8a2a6e6-538c-43a1-b4d5-095bc56f9982"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Invoke tool",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"url\" : \"https://google.com\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/tools/010b5458-a010-4805-835a-770dc8bf7e77/invoke",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tools",
+								"010b5458-a010-4805-835a-770dc8bf7e77",
+								"invoke"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Broken links agent",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Get broken links\",\n    \"description\": \"get broken links of a page\",\n    \"fields\": [\n       {\n                \"name\": \"url\",\n                \"type\": \"string\",\n                \"optional\": true\n            },\n             {\n                \"name\": \"depth\",\n                \"type\": \"number\",\n                \"optional\": true\n            }\n    ],\n    \"steps\": [\n       {\n            \"id\": \"broken-links-1\",\n            \"type\": \"brokenLinks\",\n           \"url\" : \"{url}\"\n        }\n    ]\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/tools",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tools"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add youtube transcript",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Youtube transcript\",\n    \"description\": \"Get the Youtube video transcript\",\n    \"fields\": [\n        {\n            \"name\": \"url\",\n            \"type\": \"string\",\n            \"optional\" : true\n        }\n      \n        \n    ],\n    \"steps\": [\n        {\n            \"id\": \"youtube-1\",\n            \"type\": \"youtube\",\n            \"url\" : \"{url}\" \n        }\n      \n    ]\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/tools",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tools"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get tools Copy",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/tools/7f80b37b-903a-4ea7-a597-ec803e7b2efe",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tools",
+								"7f80b37b-903a-4ea7-a597-ec803e7b2efe"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Agents",
+			"item": [
+				{
+					"name": "tokens",
+					"item": [
+						{
+							"name": "add token",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const response = pm.response.json();",
+											"pm.environment.set('APIK_TOKEN', response.token);",
+											"",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{ACCESS_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Appointments scheduler\",\n    \"description\": \"Schedule user appointments, please use the get communities tool first to get the communities\",\n    \"coreInstructions\": \"Schedule user appointments, please use the get communities tool first to get the communitie\",\n    \"category\": \"Scheduler\",\n    \"tags\": [\"logging\", \"retrieval\"],\n    \"toolIds\" : [\"2b6d4ea3-911c-4ad3-b8dc-a825b091d129\"]\n  }"
+								},
+								"url": {
+									"raw": "http://localhost:3000/agents/{{TEMPLATE_AGENT_ID}}/tokens",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"agents",
+										"{{TEMPLATE_AGENT_ID}}",
+										"tokens"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get tokens",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const response = pm.response.json();",
+											"pm.environment.set('APIK_TOKEN', response.token);",
+											"",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Appointments scheduler\",\n    \"description\": \"Schedule user appointments, please use the get communities tool first to get the communities\",\n    \"coreInstructions\": \"Schedule user appointments, please use the get communities tool first to get the communitie\",\n    \"category\": \"Scheduler\",\n    \"tags\": [\"logging\", \"retrieval\"],\n    \"toolIds\" : [\"2b6d4ea3-911c-4ad3-b8dc-a825b091d129\"]\n  }"
+								},
+								"url": {
+									"raw": "http://localhost:3000/agents/{{TEMPLATE_AGENT_ID}}/tokens",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"agents",
+										"{{TEMPLATE_AGENT_ID}}",
+										"tokens"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "chats with api key",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{API_TOKEN}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "x-api-key",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"messages\": [\n     \n         {\n            \"role\": \"HUMAN\",\n            \"content\": \"scrape https://google.com\"\n        }\n    ]\n\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/agents/{{TEMPLATE_AGENT_ID}}/chats",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"agents",
+										"{{TEMPLATE_AGENT_ID}}",
+										"chats"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "templates",
+					"item": [
+						{
+							"name": "request to publsh",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const response = pm.response.json();",
+											"if (response.id) pm.environment.set('TO_PUBLISH_AGENT_ID', response.id);",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{ACCESS_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"SEO Master Agent\",\n  \"description\": \"Coordinates subagents to perform comprehensive SEO analysis and optimization.\",\n  \"coreInstructions\": \"This agent oversees all subagents to gather page data, analyze competitor strategies, and optimize on-page SEO. Ensure each subagent completes its tasks in sequence or parallel. Final goal: Provide a consolidated SEO improvement plan.\",\n  \"category\": \"SEO\",\n  \"tags\": [\"marketing\", \"seo\", \"automation\"],\n  \"model\": {\n    \"provider\": \"openai\",\n    \"modelName\": \"gpt-3.5-turbo\"\n  },\n  \"tools\": [\n    {\n      \"name\": \"GetPageInfo\",\n      \"description\": \"Scrapes a given URL and generates optimized metadata via an LLM step.\",\n      \"fields\": [\n        {\n          \"name\": \"url\",\n          \"type\": \"string\",\n          \"optional\": true\n        }\n      ],\n      \"steps\": [\n        {\n          \"type\": \"scrape\",\n          \"id\": \"scrape-1\",\n          \"url\": \"{url}\",\n          \"outputNamespace\": \"scrape\",\n          \"description\": \"Scrape the provided URL for on-page data.\"\n        },\n        {\n          \"type\": \"llm\",\n          \"id\": \"llm\",\n          \"name\": \"OptimizeMetadata\",\n          \"promptTemplate\": \"Using the following scraped data, generate best-practice SEO meta tags: {scrape.docs}\",\n          \"description\": \"Generate optimized metadata for the page (title, description, keywords).\",\n          \"outputNamespace\": \"optimizedTags\"\n        }\n      ]\n    }\n  ],\n  \"children\": [\n    {\n      \"name\": \"Competitor Analysis Agent\",\n      \"description\": \"Focuses on collecting and summarizing competitor strategies.\",\n      \"coreInstructions\": \"Fetch competitor websites, gather crucial insights (e.g., top pages, meta tags, keyword usage), then summarize key SEO strategies used by competitors.\",\n      \"tags\": [\"subagent\", \"competitor-analysis\", \"childA\"],\n      \"tools\": [\n        {\n          \"name\": \"LLMCompetitorSummarizer\",\n          \"description\": \"Queries an LLM to produce a concise competitor SEO summary.\",\n          \"fields\" : [],\n          \"steps\": [\n            {\n              \"type\": \"llm\",\n              \"id\": \"llm-subA\",\n              \"name\": \"SummarizeCompetitor\",\n              \"isLoop\": false,\n              \"promptTemplate\": \"Given competitor site data, summarize their SEO strategy in bullet points.\",\n              \"outputNamespace\": \"competitorSummary\"\n            }\n          ]\n        }\n      ],\n      \"children\": [\n        {\n          \"name\": \"KeywordExpansionAgent\",\n          \"description\": \"Generates new keyword ideas based on competitor strategies.\",\n          \"coreInstructions\": \"Review competitorSummary output, generate a list of new, high-potential keywords to target, focusing on user intent and relevancy.\",\n          \"tags\": [\"subagent\", \"keyword-expansion\", \"childB\"],\n          \"tools\": [\n            {\n              \"name\": \"KeywordBrainstormLLM\",\n              \"description\": \"Uses LLM to propose additional keywords relevant to competitor strategies.\",\n              \"fields\" : [],\n              \"steps\": [\n                {\n                  \"type\": \"llm\",\n                  \"id\": \"llm-subB\",\n                  \"name\": \"GenerateKeywords\",\n                  \"isLoop\": false,\n                  \"promptTemplate\": \"Based on competitor SEO strategies and existing keywords, propose 10 new keyword ideas. Input: {competitorSummary}\",\n                  \"outputNamespace\": \"keywordIdeas\"\n                }\n              ]\n            }\n          ],\n          \"children\": []\n        }\n      ]\n    }\n  ]\n}\n"
+								},
+								"url": {
+									"raw": "http://localhost:3000/agents/{{TEMPLATE_AGENT_ID}}/publish-requests",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"agents",
+										"{{TEMPLATE_AGENT_ID}}",
+										"publish-requests"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "publish",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const response = pm.response.json();",
+											"if (response.id) pm.environment.set('PUBLISHED_AGENT_ID', response.id);",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{ACCESS_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"SEO Master Agent\",\n  \"description\": \"Coordinates subagents to perform comprehensive SEO analysis and optimization.\",\n  \"coreInstructions\": \"This agent oversees all subagents to gather page data, analyze competitor strategies, and optimize on-page SEO. Ensure each subagent completes its tasks in sequence or parallel. Final goal: Provide a consolidated SEO improvement plan.\",\n  \"category\": \"SEO\",\n  \"tags\": [\"marketing\", \"seo\", \"automation\"],\n  \"model\": {\n    \"provider\": \"openai\",\n    \"modelName\": \"gpt-3.5-turbo\"\n  },\n  \"tools\": [\n    {\n      \"name\": \"GetPageInfo\",\n      \"description\": \"Scrapes a given URL and generates optimized metadata via an LLM step.\",\n      \"fields\": [\n        {\n          \"name\": \"url\",\n          \"type\": \"string\",\n          \"optional\": true\n        }\n      ],\n      \"steps\": [\n        {\n          \"type\": \"scrape\",\n          \"id\": \"scrape-1\",\n          \"url\": \"{url}\",\n          \"outputNamespace\": \"scrape\",\n          \"description\": \"Scrape the provided URL for on-page data.\"\n        },\n        {\n          \"type\": \"llm\",\n          \"id\": \"llm\",\n          \"name\": \"OptimizeMetadata\",\n          \"promptTemplate\": \"Using the following scraped data, generate best-practice SEO meta tags: {scrape.docs}\",\n          \"description\": \"Generate optimized metadata for the page (title, description, keywords).\",\n          \"outputNamespace\": \"optimizedTags\"\n        }\n      ]\n    }\n  ],\n  \"children\": [\n    {\n      \"name\": \"Competitor Analysis Agent\",\n      \"description\": \"Focuses on collecting and summarizing competitor strategies.\",\n      \"coreInstructions\": \"Fetch competitor websites, gather crucial insights (e.g., top pages, meta tags, keyword usage), then summarize key SEO strategies used by competitors.\",\n      \"tags\": [\"subagent\", \"competitor-analysis\", \"childA\"],\n      \"tools\": [\n        {\n          \"name\": \"LLMCompetitorSummarizer\",\n          \"description\": \"Queries an LLM to produce a concise competitor SEO summary.\",\n          \"fields\" : [],\n          \"steps\": [\n            {\n              \"type\": \"llm\",\n              \"id\": \"llm-subA\",\n              \"name\": \"SummarizeCompetitor\",\n              \"isLoop\": false,\n              \"promptTemplate\": \"Given competitor site data, summarize their SEO strategy in bullet points.\",\n              \"outputNamespace\": \"competitorSummary\"\n            }\n          ]\n        }\n      ],\n      \"children\": [\n        {\n          \"name\": \"KeywordExpansionAgent\",\n          \"description\": \"Generates new keyword ideas based on competitor strategies.\",\n          \"coreInstructions\": \"Review competitorSummary output, generate a list of new, high-potential keywords to target, focusing on user intent and relevancy.\",\n          \"tags\": [\"subagent\", \"keyword-expansion\", \"childB\"],\n          \"tools\": [\n            {\n              \"name\": \"KeywordBrainstormLLM\",\n              \"description\": \"Uses LLM to propose additional keywords relevant to competitor strategies.\",\n              \"fields\" : [],\n              \"steps\": [\n                {\n                  \"type\": \"llm\",\n                  \"id\": \"llm-subB\",\n                  \"name\": \"GenerateKeywords\",\n                  \"isLoop\": false,\n                  \"promptTemplate\": \"Based on competitor SEO strategies and existing keywords, propose 10 new keyword ideas. Input: {competitorSummary}\",\n                  \"outputNamespace\": \"keywordIdeas\"\n                }\n              ]\n            }\n          ],\n          \"children\": []\n        }\n      ]\n    }\n  ]\n}\n"
+								},
+								"url": {
+									"raw": "http://localhost:3000/agents/{{TO_PUBLISH_AGENT_ID}}/publish",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"agents",
+										"{{TO_PUBLISH_AGENT_ID}}",
+										"publish"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "clone",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const response = pm.response.json();",
+											"if (response.id) pm.environment.set('CLONED_AGENT_ID', response.id);",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{ACCESS_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"SEO Master Agent\",\n  \"description\": \"Coordinates subagents to perform comprehensive SEO analysis and optimization.\",\n  \"coreInstructions\": \"This agent oversees all subagents to gather page data, analyze competitor strategies, and optimize on-page SEO. Ensure each subagent completes its tasks in sequence or parallel. Final goal: Provide a consolidated SEO improvement plan.\",\n  \"category\": \"SEO\",\n  \"tags\": [\"marketing\", \"seo\", \"automation\"],\n  \"model\": {\n    \"provider\": \"openai\",\n    \"modelName\": \"gpt-3.5-turbo\"\n  },\n  \"tools\": [\n    {\n      \"name\": \"GetPageInfo\",\n      \"description\": \"Scrapes a given URL and generates optimized metadata via an LLM step.\",\n      \"fields\": [\n        {\n          \"name\": \"url\",\n          \"type\": \"string\",\n          \"optional\": true\n        }\n      ],\n      \"steps\": [\n        {\n          \"type\": \"scrape\",\n          \"id\": \"scrape-1\",\n          \"url\": \"{url}\",\n          \"outputNamespace\": \"scrape\",\n          \"description\": \"Scrape the provided URL for on-page data.\"\n        },\n        {\n          \"type\": \"llm\",\n          \"id\": \"llm\",\n          \"name\": \"OptimizeMetadata\",\n          \"promptTemplate\": \"Using the following scraped data, generate best-practice SEO meta tags: {scrape.docs}\",\n          \"description\": \"Generate optimized metadata for the page (title, description, keywords).\",\n          \"outputNamespace\": \"optimizedTags\"\n        }\n      ]\n    }\n  ],\n  \"children\": [\n    {\n      \"name\": \"Competitor Analysis Agent\",\n      \"description\": \"Focuses on collecting and summarizing competitor strategies.\",\n      \"coreInstructions\": \"Fetch competitor websites, gather crucial insights (e.g., top pages, meta tags, keyword usage), then summarize key SEO strategies used by competitors.\",\n      \"tags\": [\"subagent\", \"competitor-analysis\", \"childA\"],\n      \"tools\": [\n        {\n          \"name\": \"LLMCompetitorSummarizer\",\n          \"description\": \"Queries an LLM to produce a concise competitor SEO summary.\",\n          \"fields\" : [],\n          \"steps\": [\n            {\n              \"type\": \"llm\",\n              \"id\": \"llm-subA\",\n              \"name\": \"SummarizeCompetitor\",\n              \"isLoop\": false,\n              \"promptTemplate\": \"Given competitor site data, summarize their SEO strategy in bullet points.\",\n              \"outputNamespace\": \"competitorSummary\"\n            }\n          ]\n        }\n      ],\n      \"children\": [\n        {\n          \"name\": \"KeywordExpansionAgent\",\n          \"description\": \"Generates new keyword ideas based on competitor strategies.\",\n          \"coreInstructions\": \"Review competitorSummary output, generate a list of new, high-potential keywords to target, focusing on user intent and relevancy.\",\n          \"tags\": [\"subagent\", \"keyword-expansion\", \"childB\"],\n          \"tools\": [\n            {\n              \"name\": \"KeywordBrainstormLLM\",\n              \"description\": \"Uses LLM to propose additional keywords relevant to competitor strategies.\",\n              \"fields\" : [],\n              \"steps\": [\n                {\n                  \"type\": \"llm\",\n                  \"id\": \"llm-subB\",\n                  \"name\": \"GenerateKeywords\",\n                  \"isLoop\": false,\n                  \"promptTemplate\": \"Based on competitor SEO strategies and existing keywords, propose 10 new keyword ideas. Input: {competitorSummary}\",\n                  \"outputNamespace\": \"keywordIdeas\"\n                }\n              ]\n            }\n          ],\n          \"children\": []\n        }\n      ]\n    }\n  ]\n}\n"
+								},
+								"url": {
+									"raw": "http://localhost:3000/agents/{{PUBLISHED_AGENT_ID}}/clone",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"agents",
+										"{{PUBLISHED_AGENT_ID}}",
+										"clone"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get templates",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const response = pm.response.json();",
+											"if (response.id) pm.environment.set('TO_PUBLISH_AGENT_ID', response.id);",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{ACCESS_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"SEO Master Agent\",\n  \"description\": \"Coordinates subagents to perform comprehensive SEO analysis and optimization.\",\n  \"coreInstructions\": \"This agent oversees all subagents to gather page data, analyze competitor strategies, and optimize on-page SEO. Ensure each subagent completes its tasks in sequence or parallel. Final goal: Provide a consolidated SEO improvement plan.\",\n  \"category\": \"SEO\",\n  \"tags\": [\"marketing\", \"seo\", \"automation\"],\n  \"model\": {\n    \"provider\": \"openai\",\n    \"modelName\": \"gpt-3.5-turbo\"\n  },\n  \"tools\": [\n    {\n      \"name\": \"GetPageInfo\",\n      \"description\": \"Scrapes a given URL and generates optimized metadata via an LLM step.\",\n      \"fields\": [\n        {\n          \"name\": \"url\",\n          \"type\": \"string\",\n          \"optional\": true\n        }\n      ],\n      \"steps\": [\n        {\n          \"type\": \"scrape\",\n          \"id\": \"scrape-1\",\n          \"url\": \"{url}\",\n          \"outputNamespace\": \"scrape\",\n          \"description\": \"Scrape the provided URL for on-page data.\"\n        },\n        {\n          \"type\": \"llm\",\n          \"id\": \"llm\",\n          \"name\": \"OptimizeMetadata\",\n          \"promptTemplate\": \"Using the following scraped data, generate best-practice SEO meta tags: {scrape.docs}\",\n          \"description\": \"Generate optimized metadata for the page (title, description, keywords).\",\n          \"outputNamespace\": \"optimizedTags\"\n        }\n      ]\n    }\n  ],\n  \"children\": [\n    {\n      \"name\": \"Competitor Analysis Agent\",\n      \"description\": \"Focuses on collecting and summarizing competitor strategies.\",\n      \"coreInstructions\": \"Fetch competitor websites, gather crucial insights (e.g., top pages, meta tags, keyword usage), then summarize key SEO strategies used by competitors.\",\n      \"tags\": [\"subagent\", \"competitor-analysis\", \"childA\"],\n      \"tools\": [\n        {\n          \"name\": \"LLMCompetitorSummarizer\",\n          \"description\": \"Queries an LLM to produce a concise competitor SEO summary.\",\n          \"fields\" : [],\n          \"steps\": [\n            {\n              \"type\": \"llm\",\n              \"id\": \"llm-subA\",\n              \"name\": \"SummarizeCompetitor\",\n              \"isLoop\": false,\n              \"promptTemplate\": \"Given competitor site data, summarize their SEO strategy in bullet points.\",\n              \"outputNamespace\": \"competitorSummary\"\n            }\n          ]\n        }\n      ],\n      \"children\": [\n        {\n          \"name\": \"KeywordExpansionAgent\",\n          \"description\": \"Generates new keyword ideas based on competitor strategies.\",\n          \"coreInstructions\": \"Review competitorSummary output, generate a list of new, high-potential keywords to target, focusing on user intent and relevancy.\",\n          \"tags\": [\"subagent\", \"keyword-expansion\", \"childB\"],\n          \"tools\": [\n            {\n              \"name\": \"KeywordBrainstormLLM\",\n              \"description\": \"Uses LLM to propose additional keywords relevant to competitor strategies.\",\n              \"fields\" : [],\n              \"steps\": [\n                {\n                  \"type\": \"llm\",\n                  \"id\": \"llm-subB\",\n                  \"name\": \"GenerateKeywords\",\n                  \"isLoop\": false,\n                  \"promptTemplate\": \"Based on competitor SEO strategies and existing keywords, propose 10 new keyword ideas. Input: {competitorSummary}\",\n                  \"outputNamespace\": \"keywordIdeas\"\n                }\n              ]\n            }\n          ],\n          \"children\": []\n        }\n      ]\n    }\n  ]\n}\n"
+								},
+								"url": {
+									"raw": "http://localhost:3000/agents/templates",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"agents",
+										"templates"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get templates Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const response = pm.response.json();",
+											"if (response.id) pm.environment.set('TO_PUBLISH_AGENT_ID', response.id);",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{ACCESS_TOKEN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"SEO Master Agent\",\n  \"description\": \"Coordinates subagents to perform comprehensive SEO analysis and optimization.\",\n  \"coreInstructions\": \"This agent oversees all subagents to gather page data, analyze competitor strategies, and optimize on-page SEO. Ensure each subagent completes its tasks in sequence or parallel. Final goal: Provide a consolidated SEO improvement plan.\",\n  \"category\": \"SEO\",\n  \"tags\": [\"marketing\", \"seo\", \"automation\"],\n  \"model\": {\n    \"provider\": \"openai\",\n    \"modelName\": \"gpt-3.5-turbo\"\n  },\n  \"tools\": [\n    {\n      \"name\": \"GetPageInfo\",\n      \"description\": \"Scrapes a given URL and generates optimized metadata via an LLM step.\",\n      \"fields\": [\n        {\n          \"name\": \"url\",\n          \"type\": \"string\",\n          \"optional\": true\n        }\n      ],\n      \"steps\": [\n        {\n          \"type\": \"scrape\",\n          \"id\": \"scrape-1\",\n          \"url\": \"{url}\",\n          \"outputNamespace\": \"scrape\",\n          \"description\": \"Scrape the provided URL for on-page data.\"\n        },\n        {\n          \"type\": \"llm\",\n          \"id\": \"llm\",\n          \"name\": \"OptimizeMetadata\",\n          \"promptTemplate\": \"Using the following scraped data, generate best-practice SEO meta tags: {scrape.docs}\",\n          \"description\": \"Generate optimized metadata for the page (title, description, keywords).\",\n          \"outputNamespace\": \"optimizedTags\"\n        }\n      ]\n    }\n  ],\n  \"children\": [\n    {\n      \"name\": \"Competitor Analysis Agent\",\n      \"description\": \"Focuses on collecting and summarizing competitor strategies.\",\n      \"coreInstructions\": \"Fetch competitor websites, gather crucial insights (e.g., top pages, meta tags, keyword usage), then summarize key SEO strategies used by competitors.\",\n      \"tags\": [\"subagent\", \"competitor-analysis\", \"childA\"],\n      \"tools\": [\n        {\n          \"name\": \"LLMCompetitorSummarizer\",\n          \"description\": \"Queries an LLM to produce a concise competitor SEO summary.\",\n          \"fields\" : [],\n          \"steps\": [\n            {\n              \"type\": \"llm\",\n              \"id\": \"llm-subA\",\n              \"name\": \"SummarizeCompetitor\",\n              \"isLoop\": false,\n              \"promptTemplate\": \"Given competitor site data, summarize their SEO strategy in bullet points.\",\n              \"outputNamespace\": \"competitorSummary\"\n            }\n          ]\n        }\n      ],\n      \"children\": [\n        {\n          \"name\": \"KeywordExpansionAgent\",\n          \"description\": \"Generates new keyword ideas based on competitor strategies.\",\n          \"coreInstructions\": \"Review competitorSummary output, generate a list of new, high-potential keywords to target, focusing on user intent and relevancy.\",\n          \"tags\": [\"subagent\", \"keyword-expansion\", \"childB\"],\n          \"tools\": [\n            {\n              \"name\": \"KeywordBrainstormLLM\",\n              \"description\": \"Uses LLM to propose additional keywords relevant to competitor strategies.\",\n              \"fields\" : [],\n              \"steps\": [\n                {\n                  \"type\": \"llm\",\n                  \"id\": \"llm-subB\",\n                  \"name\": \"GenerateKeywords\",\n                  \"isLoop\": false,\n                  \"promptTemplate\": \"Based on competitor SEO strategies and existing keywords, propose 10 new keyword ideas. Input: {competitorSummary}\",\n                  \"outputNamespace\": \"keywordIdeas\"\n                }\n              ]\n            }\n          ],\n          \"children\": []\n        }\n      ]\n    }\n  ]\n}\n"
+								},
+								"url": {
+									"raw": "http://localhost:3000/agents/templates/4a65c4ed-685e-480b-9cd8-ed464c3ad9b9",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"agents",
+										"templates",
+										"4a65c4ed-685e-480b-9cd8-ed464c3ad9b9"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "full template",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();",
+									"pm.environment.set('TEMPLATE_AGENT_ID', response.id);",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"SEO Master Agent\",\n  \"description\": \"Coordinates subagents to perform comprehensive SEO analysis and optimization.\",\n  \"coreInstructions\": \"This agent oversees all subagents to gather page data, analyze competitor strategies, and optimize on-page SEO. Ensure each subagent completes its tasks in sequence or parallel. Final goal: Provide a consolidated SEO improvement plan.\",\n  \"category\": \"SEO\",\n  \"tags\": [\"marketing\", \"seo\", \"automation\"],\n  \"model\": {\n    \"provider\": \"openai\",\n    \"modelName\": \"gpt-4o\"\n  },\n  \"tools\": [\n    {\n      \"name\": \"GetPageInfo\",\n      \"description\": \"Scrapes a given URL and generates optimized metadata via an LLM step.\",\n      \"fields\": [\n        {\n          \"name\": \"url\",\n          \"type\": \"string\",\n          \"optional\": true\n        }\n      ],\n      \"steps\": [\n        {\n          \"type\": \"scrape\",\n          \"id\": \"scrape-1\",\n          \"url\": \"{url}\",\n          \"outputNamespace\": \"scrape\",\n          \"description\": \"Scrape the provided URL for on-page data.\"\n        },\n        {\n          \"type\": \"llm\",\n          \"id\": \"llm\",\n          \"name\": \"OptimizeMetadata\",\n          \"promptTemplate\": \"Using the following scraped data, generate best-practice SEO meta tags: {scrape.docs}\",\n          \"description\": \"Generate optimized metadata for the page (title, description, keywords).\",\n          \"outputNamespace\": \"optimizedTags\"\n        }\n      ]\n    }\n  ],\n  \"children\": [\n    {\n      \"name\": \"Competitor Analysis Agent\",\n      \"description\": \"Focuses on collecting and summarizing competitor strategies.\",\n      \"coreInstructions\": \"Fetch competitor websites, gather crucial insights (e.g., top pages, meta tags, keyword usage), then summarize key SEO strategies used by competitors.\",\n      \"tags\": [\"subagent\", \"competitor-analysis\", \"childA\"],\n      \"tools\": [\n        {\n          \"name\": \"LLMCompetitorSummarizer\",\n          \"description\": \"Queries an LLM to produce a concise competitor SEO summary.\",\n          \"fields\" : [],\n          \"steps\": [\n            {\n              \"type\": \"llm\",\n              \"id\": \"llm-subA\",\n              \"name\": \"SummarizeCompetitor\",\n              \"isLoop\": false,\n              \"promptTemplate\": \"Given competitor site data, summarize their SEO strategy in bullet points.\",\n              \"outputNamespace\": \"competitorSummary\"\n            }\n          ]\n        }\n      ],\n      \"children\": [\n        {\n          \"name\": \"KeywordExpansionAgent\",\n          \"description\": \"Generates new keyword ideas based on competitor strategies.\",\n          \"coreInstructions\": \"Review competitorSummary output, generate a list of new, high-potential keywords to target, focusing on user intent and relevancy.\",\n          \"tags\": [\"subagent\", \"keyword-expansion\", \"childB\"],\n          \"tools\": [\n            {\n              \"name\": \"KeywordBrainstormLLM\",\n              \"description\": \"Uses LLM to propose additional keywords relevant to competitor strategies.\",\n              \"fields\" : [],\n              \"steps\": [\n                {\n                  \"type\": \"llm\",\n                  \"id\": \"llm-subB\",\n                  \"name\": \"GenerateKeywords\",\n                  \"isLoop\": false,\n                  \"promptTemplate\": \"Based on competitor SEO strategies and existing keywords, propose 10 new keyword ideas. Input: {competitorSummary}\",\n                  \"outputNamespace\": \"keywordIdeas\"\n                }\n              ]\n            }\n          ],\n          \"children\": []\n        }\n      ]\n    }\n  ]\n}\n"
+						},
+						"url": {
+							"raw": "http://localhost:3000/agents/from-template",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"agents",
+								"from-template"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get agent",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"SEO Master Agent\",\n  \"description\": \"Coordinates subagents to perform comprehensive SEO analysis and optimization.\",\n  \"coreInstructions\": \"This agent oversees all subagents to gather page data, analyze competitor strategies, and optimize on-page SEO. Ensure each subagent completes its tasks in sequence or parallel. Final goal: Provide a consolidated SEO improvement plan.\",\n  \"category\": \"SEO\",\n  \"tags\": [\"marketing\", \"seo\", \"automation\"],\n  \"model\": {\n    \"provider\": \"openai\",\n    \"modelName\": \"gpt-3.5-turbo\"\n  },\n  \"tools\": [\n    {\n      \"name\": \"GetPageInfo\",\n      \"description\": \"Scrapes a given URL and generates optimized metadata via an LLM step.\",\n      \"fields\": [\n        {\n          \"name\": \"url\",\n          \"type\": \"string\",\n          \"optional\": true\n        }\n      ],\n      \"steps\": [\n        {\n          \"type\": \"scrape\",\n          \"id\": \"scrape-1\",\n          \"url\": \"{url}\",\n          \"outputNamespace\": \"scrape\",\n          \"description\": \"Scrape the provided URL for on-page data.\"\n        },\n        {\n          \"type\": \"llm\",\n          \"id\": \"llm\",\n          \"name\": \"OptimizeMetadata\",\n          \"promptTemplate\": \"Using the following scraped data, generate best-practice SEO meta tags: {scrape.docs}\",\n          \"description\": \"Generate optimized metadata for the page (title, description, keywords).\",\n          \"outputNamespace\": \"optimizedTags\"\n        }\n      ]\n    }\n  ],\n  \"children\": [\n    {\n      \"name\": \"Competitor Analysis Agent\",\n      \"description\": \"Focuses on collecting and summarizing competitor strategies.\",\n      \"coreInstructions\": \"Fetch competitor websites, gather crucial insights (e.g., top pages, meta tags, keyword usage), then summarize key SEO strategies used by competitors.\",\n      \"tags\": [\"subagent\", \"competitor-analysis\", \"childA\"],\n      \"tools\": [\n        {\n          \"name\": \"LLMCompetitorSummarizer\",\n          \"description\": \"Queries an LLM to produce a concise competitor SEO summary.\",\n          \"fields\" : [],\n          \"steps\": [\n            {\n              \"type\": \"llm\",\n              \"id\": \"llm-subA\",\n              \"name\": \"SummarizeCompetitor\",\n              \"isLoop\": false,\n              \"promptTemplate\": \"Given competitor site data, summarize their SEO strategy in bullet points.\",\n              \"outputNamespace\": \"competitorSummary\"\n            }\n          ]\n        }\n      ],\n      \"children\": [\n        {\n          \"name\": \"KeywordExpansionAgent\",\n          \"description\": \"Generates new keyword ideas based on competitor strategies.\",\n          \"coreInstructions\": \"Review competitorSummary output, generate a list of new, high-potential keywords to target, focusing on user intent and relevancy.\",\n          \"tags\": [\"subagent\", \"keyword-expansion\", \"childB\"],\n          \"tools\": [\n            {\n              \"name\": \"KeywordBrainstormLLM\",\n              \"description\": \"Uses LLM to propose additional keywords relevant to competitor strategies.\",\n              \"fields\" : [],\n              \"steps\": [\n                {\n                  \"type\": \"llm\",\n                  \"id\": \"llm-subB\",\n                  \"name\": \"GenerateKeywords\",\n                  \"isLoop\": false,\n                  \"promptTemplate\": \"Based on competitor SEO strategies and existing keywords, propose 10 new keyword ideas. Input: {competitorSummary}\",\n                  \"outputNamespace\": \"keywordIdeas\"\n                }\n              ]\n            }\n          ],\n          \"children\": []\n        }\n      ]\n    }\n  ]\n}\n"
+						},
+						"url": {
+							"raw": "http://localhost:3000/agents/b724c8b7-57f0-4233-9a5f-b4f05822abc6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"agents",
+								"b724c8b7-57f0-4233-9a5f-b4f05822abc6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "simple template",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();",
+									"pm.environment.set('TEMPLATE_AGENT_ID', response.id);",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"SEO Master Agent\",\n  \"description\": \" perform comprehensive SEO analysis and optimization.\",\n  \"coreInstructions\": \"perform comprehensive SEO analysis and optimization.\",\n  \"category\": \"SEO\",\n  \"tags\": [\"marketing\", \"seo\", \"automation\"],\n  \"model\": {\n    \"provider\": \"openai\",\n    \"modelName\": \"gpt-4\"\n  },\n  \"tools\": [\n    {\n      \"name\": \"GetOmtimizedMetadata\",\n      \"description\": \"Scrapes a given URL and generates optimized metadata via an LLM step.\",\n      \"fields\": [\n        {\n          \"name\": \"url\",\n          \"type\": \"string\",\n          \"optional\": true\n        }\n      ],\n      \"steps\": [\n        {\n          \"type\": \"scrape\",\n          \"id\": \"scrape-1\",\n          \"url\": \"{url}\",\n          \"outputNamespace\": \"scrape\",\n        },\n        {\n          \"type\": \"llm\",\n          \"id\": \"llm\",\n          \"name\": \"OptimizeMetadata\",\n          \"promptTemplate\": \"Using the following scraped data, generate best-practice SEO meta tags: {scrape.docs}\",\n          \"outputNamespace\": \"optimizedTags\"\n        }\n      ]\n    }\n  ],\n  \"children\": []\n}\n"
+						},
+						"url": {
+							"raw": "http://localhost:3000/agents/from-template",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"agents",
+								"from-template"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add markdown agent",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Markdown Agent\",\n    \"description\": \"This agent formats text, logs, or other data into Markdown.\",\n    \"coreInstructions\": \"You are the Markdown Agent. Given any text or logs, output them in valid, well-structured Markdown. Return the formatted text to the requesting agent.\",\n    \"category\": \"Formatter\",\n    \"tags\": [\"markdown\", \"formatting\"]\n  }\n"
+						},
+						"url": {
+							"raw": "http://localhost:3000/agents",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"agents"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add supervisor agent",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Supervisor Agent\",\n    \"description\": \"Coordinates retrieval and formatting of logs. Oversees subagents to fulfill user queries.\",\n    \"coreInstructions\": \"You are the Supervisor Agent. First, instruct the Log Agent to fetch logs based on user requirements. Next, pass the logs to the Markdown Agent to produce a neatly formatted Markdown output. Finally, return the formatted logs to the user. If no further tasks remain, respond with FINISH.\",\n    \"category\": \"Manager\",\n    \"tags\": [\"supervisor\", \"orchestrator\"],\n    \"childIds\": [\"5f648035-c7bc-4f76-a282-aa5f94c8055a\", \"221d3980-688d-47c6-ad5f-284406a3c436\"]\n  }\n"
+						},
+						"url": {
+							"raw": "http://localhost:3000/agents",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"agents"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "invoke template agent",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"messages\": [\n     \n             {\n            \"role\": \"HUMAN\",\n            \"content\": \"try again\"\n        }],\n   \"chatId\": \"c1755b7a-7994-4a2f-9797-a44e1c543a6e\",\n   \"mode\" : \"reply\"\n    \n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/agents/{{TEMPLATE_AGENT_ID}}/invoke",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"agents",
+								"{{TEMPLATE_AGENT_ID}}",
+								"invoke"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update log agent",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n     \"description\": \"This agent retrieves logs for analysis and summarize them in human readable format,\"\n\n  }"
+						},
+						"url": {
+							"raw": "http://localhost:3000/agents/18fe296c-c599-4b77-b010-bf7b1fe0f2a2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"agents",
+								"18fe296c-c599-4b77-b010-bf7b1fe0f2a2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Optimize sitemap update",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Get sitemap of website\",\n    \"description\": \"I'll give you a URL of a website and I want you get the sitemap\",\n    \"fields\": [\n        {\n            \"name\": \"url\",\n            \"type\": \"string\",\n            \"optional\": true\n        }\n    ],\n    \"steps\": [\n        {\n            \"id\": \"api\",\n            \"name\" : \"Get sitemap\",\n            \"type\": \"api\",\n           \"baseUrl\" : \"{url}\",\n           \"verb\" : \"GET\",\n            \"outputNamespace\": \"sitemap\"\n        },\n        {\n            \"id\": \"llm\",\n            \"name\": \"Get Recomendations\",\n            \"type\": \"llm\",\n            \"modelName\" : \"gpt-4o\",\n            \"promptTemplate\": \"Can you give me concise and producation grade recomendations on how to improve my sitemap for: {sitemap.responseBody}, please don't re-write the sitemap, just givme the recomendations {sitemap.responseBody}. Ensure that the recomendations can help me re-write the new sitemap\",\n            \"outputNamespace\": \"recomendations\"\n        },\n        {\n            \"id\": \"llm\",\n            \"name\": \"generate_new_sitemap\",\n            \"type\": \"llm\",\n             \"modelName\" : \"gpt-4o\",\n            \"promptTemplate\": \"Can you re-write this sitemap: \\n {sitemap.responseBody} based on these recomendations: \\n {recomendations.answer}, please output the new sitemap and nothing else, ensure the sitemap is inclusive of all required details.\",\n            \"outputNamespace\": \"newSitemap\"\n        }\n    ]\n   \n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/tools/e52a1946-6f04-4717-aee5-68e6dcbbf19b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tools",
+								"e52a1946-6f04-4717-aee5-68e6dcbbf19b"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tools Templates",
+			"item": [
+				{
+					"name": "Get templates",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/tools/templates",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tools",
+								"templates"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Request Publish",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();",
+									"",
+									"if (response.id) {",
+									"    pm.environment.set('PUBLISHED_TEMPLATE_ID', response.id);",
+									"} else {",
+									"    console.error('Error');",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/tools/e7137e8b-3663-4c4f-80c9-72d8c6ffef1e/publish-requests",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tools",
+								"e7137e8b-3663-4c4f-80c9-72d8c6ffef1e",
+								"publish-requests"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "export",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();",
+									"",
+									"if (response.id) {",
+									"    pm.environment.set('PUBLISHED_TEMPLATE_ID', response.id);",
+									"} else {",
+									"    console.error('Error');",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/tools/e7137e8b-3663-4c4f-80c9-72d8c6ffef1e/export",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tools",
+								"e7137e8b-3663-4c4f-80c9-72d8c6ffef1e",
+								"export"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "import",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();",
+									"",
+									"if (response.id) {",
+									"    pm.environment.set('IMPORTED_TEMPLATE_ID', response.id);",
+									"} else {",
+									"    console.error('Error');",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/Users/sabirsalah/Desktop/airasia-projects/autom8/agent-ai-builder/import.json"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/tools/import",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tools",
+								"import"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Publish",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();",
+									"",
+									"if (response.id) {",
+									"    pm.environment.set('PUBLISHED_TEMPLATE_ID', response.id);",
+									"} else {",
+									"    console.error('Error');",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/tools/e7137e8b-3663-4c4f-80c9-72d8c6ffef1e/publish",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tools",
+								"e7137e8b-3663-4c4f-80c9-72d8c6ffef1e",
+								"publish"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Clone to user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();",
+									"",
+									"if (response.id) {",
+									"    pm.environment.set('CLONED_TEMPLATE_ID', response.id);",
+									"} else {",
+									"    console.error('Error');",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/tools/{{PUBLISHED_TEMPLATE_ID}}/clone",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tools",
+								"{{PUBLISHED_TEMPLATE_ID}}",
+								"clone"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "invoke",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"url\" : \"https://google.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/tools/{{CLONED_TEMPLATE_ID}}/invoke",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tools",
+								"{{CLONED_TEMPLATE_ID}}",
+								"invoke"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "invoke imported",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"url\" : \"https://google.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/tools/{{IMPORTED_TEMPLATE_ID}}/invoke",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tools",
+								"{{IMPORTED_TEMPLATE_ID}}",
+								"invoke"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();",
+									"",
+									"if (response.accessToken) {",
+									"    pm.environment.set('ACCESS_TOKEN', response.accessToken);",
+									"    console.log('Access token saved to environment variable');",
+									"} else {",
+									"    console.error('No access token found in response');",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\" : \"sabirmgd@gmail.com\",\n    \"password\" : \"test\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();",
+									"",
+									"if (response.accessToken) {",
+									"    pm.environment.set('ACCESS_TOKEN', response.accessToken);",
+									"    console.log('Access token saved to environment variable');",
+									"} else {",
+									"    console.error('No access token found in response');",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \n    \"password\" : \"secure_password\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/admin/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"admin",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"Sabir\",\n    \"email\" : \"sabirmgd@gmail.com\",\n    \"password\" : \"test\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();",
+									"",
+									"if (response.accessTtoken) {",
+									"    pm.environment.set('ACCESS_TOKEN', response.accessTtoken);",
+									"    console.log('Access token saved to environment variable');",
+									"} else {",
+									"    console.error('No access token found in response');",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\" : \"sabirmgd@gmail.com\",\n    \"password\" : \"test\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Knowledge",
+			"item": []
+		},
+		{
+			"name": "Invoke tool Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"url\": \"https://ara-pay.com/\"\n\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/tools/393f899e-5bad-4e08-8943-612a94014305/invoke",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"tools",
+						"393f899e-5bad-4e08-8943-612a94014305",
+						"invoke"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Invoke broken links",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"url\": \"https://codemindai.com/\"\n   \n\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/tools/3dd17a08-7b4e-4cce-bf85-b06f232a06d6/invoke",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"tools",
+						"3dd17a08-7b4e-4cce-bf85-b06f232a06d6",
+						"invoke"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get youtube transcript summary",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"url\" : \"https://www.youtube.com/watch?v=NbsDUJ6OdFo\"\n\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/tools/6015823e-3035-48eb-9e43-758719258acb/invoke",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"tools",
+						"6015823e-3035-48eb-9e43-758719258acb",
+						"invoke"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "scrape url",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"url\" : \"https://www.youtube.com/watch?v=NbsDUJ6OdFo\"\n\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/tools/6015823e-3035-48eb-9e43-758719258acb/invoke",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"tools",
+						"6015823e-3035-48eb-9e43-758719258acb",
+						"invoke"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "embed",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{ACCESS_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "userId",
+							"value": "test",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/sabirsalah/Desktop/airasia-projects/autom8/agent-ai-builder/sample.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/knowledge/embeddings/csv",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"knowledge",
+						"embeddings",
+						"csv"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "embed pdf",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{ACCESS_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "userId",
+							"value": "test",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/sabirsalah/Documents/CIMBClicks - 3 months.pdf"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/knowledge/embeddings/pdf",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"knowledge",
+						"embeddings",
+						"pdf"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "list tables",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{ACCESS_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "userId",
+							"value": "test",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/sabirsalah/Desktop/airasia-projects/autom8/agent-ai-builder/sample.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/knowledge/tables",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"knowledge",
+						"tables"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get table",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{ACCESS_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "userId",
+							"value": "test",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/sabirsalah/Desktop/airasia-projects/autom8/agent-ai-builder/sample.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/knowledge/tables/58529321-177b-4864-80f8-aa951b50bfa0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"knowledge",
+						"tables",
+						"58529321-177b-4864-80f8-aa951b50bfa0"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

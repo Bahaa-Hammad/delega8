@@ -1,0 +1,9 @@
+{
+    "compact": true,
+    "controlFlowFlattening": true,
+    "deadCodeInjection": true,
+    "debugProtection": true,
+    "stringArray": true,
+    "rotateStringArray": true
+  }
+  

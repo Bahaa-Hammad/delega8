@@ -1,0 +1,16 @@
+# Use the official Chroma image (or a Python base + pip install chromadb)
+FROM chromadb/chroma:0.6.4.dev238
+
+# Copy our script into /usr/local/bin
+COPY start_chroma.sh /usr/local/bin/start_chroma.sh
+RUN chmod +x /usr/local/bin/start_chroma.sh
+
+# Our environment variables
+ENV DB_HOST=database
+ENV DB_PORT=5432
+ENV DB_USER=app_user
+ENV DB_PASSWORD=some_password
+ENV DB_NAME=agent_builder
+
+# Use our script as the entrypoint
+ENTRYPOINT ["/usr/local/bin/start_chroma.sh"]

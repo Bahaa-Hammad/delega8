@@ -1,0 +1,19 @@
+{
+  "name": "Scrape page",
+  "description": "scrape page",
+  "fields": [
+    {
+      "name": "url",
+      "type": "string",
+      "optional": true
+    }
+  ],
+  "steps": [
+    {
+      "id": "scrape-1",
+      "url": "{url}",
+      "type": "scrape",
+      "outputNamespace": "scrape"
+    }
+  ]
+}
