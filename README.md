@@ -1,10 +1,6 @@
 # Get Started
 
 ```
- ./scripts/encryption-utils.sh decrypt agent
-```
-
-```
 ./scripts/start.sh
 ```
 
